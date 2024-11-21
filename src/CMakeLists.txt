@@ -32,7 +32,7 @@ target_include_directories(net PRIVATE
     ./../include
 )
 
-target_compile_options(net PRIVATE -fPIC -std=c99)
+target_compile_options(net PRIVATE -fPIC -g -ggdb -std=c99)
 
 #target_link_directories(net PRIVATE
 #

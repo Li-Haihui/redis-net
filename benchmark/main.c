@@ -59,7 +59,7 @@ int main()
 {
     char neterr[128] = "";
 
-    mode_t unixsocketperm = 700;
+    mode_t unixsocketperm = 066;
     int backlog = 2;
     printf("lhh\n");
     int setsize = 2;

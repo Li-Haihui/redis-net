@@ -16,7 +16,7 @@ target_include_directories(net_benchmark PRIVATE
     ../include
 )
 
-#target_compile_options(net_benchmark PRIVATE -fPIC -std=c++11)
+target_compile_options(net_benchmark PRIVATE -fPIC -g -ggdb -std=c99)
 
 #target_link_directories(net_benchmark PRIVATE
 #
