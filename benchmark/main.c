@@ -59,15 +59,15 @@ int main()
 {
     char neterr[128] = "";
 
-    mode_t unixsocketperm = 066;
+    mode_t unixsocketperm = 666;
     int backlog = 2;
     printf("lhh\n");
-    int setsize = 2;
+    int setsize = 64;
     aeEventLoop* el = aeCreateEventLoop(setsize);
 
     sofd = anetUnixServer(neterr, unixsocket, unixsocketperm, backlog);
     if (sofd == ANET_ERR) {
-        printf("anetUnixServer failed.\n");
+        printf("anetUnixServer failed. %s\n", neterr);
         return -1;
     }
 
