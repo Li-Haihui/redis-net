@@ -78,5 +78,9 @@ int main()
         return -1;
     }
 
+    aeMain(el);
+
+    aeDeleteEventLoop(el);
+
     return 0;
 }
