@@ -9,6 +9,11 @@ file(GLOB_RECURSE SRC_FILES
     src/InterruptFlag.cpp
     src/TaskStealQueue.cpp
     src/ThreadPool.cpp
+    src/TaskPool.cpp
+    src/Timer.cpp
+    src/TimerPool.cpp
+    src/TimerWorker.cpp
+    src/TimerWrapper.cpp
 )
 
 
