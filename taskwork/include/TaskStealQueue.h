@@ -61,5 +61,5 @@ private:
 };
 
 
-#endif  // TASK_WORKER_INC_TASKSTEALQUEUE_H_
+#endif
 

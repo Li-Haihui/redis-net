@@ -23,6 +23,11 @@ void readQueryFromClient(aeEventLoop *el, int fd, void *privdata, int mask)
 
     if (nread) {
         printf("read from fd:%d buf:%s\n", fd, readbuf);
+        char writeBuf[128] = {0};
+        printf("input write:");
+        scanf("%s", writeBuf);
+        int writeLen = anetWrite(fd, writeBuf, 128);
+        printf("write len:%d\n", writeLen);
     }
 }
 
@@ -50,6 +55,12 @@ void acceptTcpHandler(aeEventLoop *el, int fd, void *privdata, int mask)
 
                 return;
             }
+
+            char writeBuf[128] = {0};
+            printf("input write:");
+            scanf("%s", writeBuf);
+            int writeLen = anetWrite(cfd, writeBuf, 128);
+            printf("write len:%d\n", writeLen);
         }
     }
 }
