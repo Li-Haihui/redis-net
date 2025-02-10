@@ -1,6 +1,7 @@
 #include "ae.h"
 #include "anet.h"
-// #include "TaskPool.h"
+
+#include "TaskPool.h"
 
 #include <stdio.h>
 #include <errno.h>
@@ -10,7 +11,7 @@
 const int servicePort = 6359;
 const char serviceAddr[] = "127.0.0.1";
 int serviceFd = 0;
-// TaskPool taskpool;
+TaskPool taskpool;
 
 void readHandler(aeEventLoop *el, int fd, void *privdata, int mask)
 {
@@ -39,10 +40,10 @@ int main()
     char neterr[128] = "";
     int setsize = 64;
     int backlog = 2;
-    // taskpool.Init();
+    taskpool.Init();
     aeEventLoop* el = aeCreateEventLoop(setsize);
 
-    int cifd = anetTcpConnect(neterr, serviceAddr, servicePort);
+    int cifd = anetTcpConnect(neterr, const_cast<char*>(serviceAddr), servicePort);
     if (cifd == ANET_ERR) {
         printf("anetTcpConnect failed. %s\n", neterr);
         return -1;
@@ -63,6 +64,6 @@ int main()
     aeMain(el);
 
     aeDeleteEventLoop(el);
-    // taskpool.ShutDown();
+    taskpool.Shutdown();
     return 0;
 }

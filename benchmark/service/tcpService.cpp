@@ -72,7 +72,7 @@ int main()
     int backlog = 2;
     aeEventLoop* el = aeCreateEventLoop(setsize);
 
-    int sofd = anetTcpServer(neterr, port, bindaddr, backlog);
+    int sofd = anetTcpServer(neterr, port, const_cast<char*>(bindaddr), backlog);
     if (sofd == ANET_ERR) {
         printf("anetTcpServer failed. %s\n", neterr);
         return -1;

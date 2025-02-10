@@ -33,6 +33,10 @@
 #ifndef __AE_H__
 #define __AE_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <time.h>
 
 #define AE_OK 0
@@ -118,5 +122,9 @@ char *aeGetApiName(void);
 void aeSetBeforeSleepProc(aeEventLoop *eventLoop, aeBeforeSleepProc *beforesleep);
 int aeGetSetSize(aeEventLoop *eventLoop);
 int aeResizeSetSize(aeEventLoop *eventLoop, int setsize);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
